@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 import { AuthContext } from '../context/AuthContext';
 import { clearCart } from '../redux/cartSlice';
 
@@ -89,7 +90,7 @@ const Checkout = () => {
                 }
             };
 
-            const res = await axios.post('http://localhost:3000/api/orders', orderPayload, config);
+            const res = await axios.post(`${API_BASE_URL}/api/orders`, orderPayload, config);
 
             if (res.status === 201 || res.data?.order) {
                 dispatch(clearCart());

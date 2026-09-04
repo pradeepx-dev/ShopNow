@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthContext } from "../context/AuthContext";
 import { addToCart } from "../redux/cartSlice";
@@ -26,7 +27,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     let active = true;
-    axios.get(`http://localhost:3000/api/products/${id}`)
+    axios.get(`${API_BASE_URL}/api/products/${id}`)
       .then(({ data }) => { if (active) { setProduct(data); setSelectedSize(data.sizes?.[0] || ""); } })
       .catch(() => active && setError("We couldn't find this product."))
       .finally(() => active && setLoading(false));

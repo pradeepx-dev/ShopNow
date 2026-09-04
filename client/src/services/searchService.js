@@ -1,8 +1,7 @@
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
-
-const searchClient = axios.create({ baseURL: API_URL });
+const searchClient = axios.create({ baseURL: API_BASE_URL });
 
 const cleanParams = (params) => Object.fromEntries(
   Object.entries(params).filter(([, value]) => value !== undefined && value !== "" && value !== null),

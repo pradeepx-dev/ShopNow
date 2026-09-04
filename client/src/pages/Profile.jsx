@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 import { useSelector } from "react-redux";
 import { AuthContext } from "../context/AuthContext";
 import ProfileSidebar from "../components/profile/ProfileSidebar";
@@ -122,7 +123,7 @@ const Profile = () => {
     };
 
     axios
-      .get(`http://localhost:3000/api/orders/myorders/${userId}`, config)
+      .get(`${API_BASE_URL}/api/orders/myorders/${userId}`, config)
       .then((res) => {
         if (active && res.data?.orders) {
           if (res.data.orders.length > 0) {
