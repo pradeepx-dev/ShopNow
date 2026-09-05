@@ -13,7 +13,7 @@ export const heroBannerData = {
 export const categoryPills = [
   { id: 1, name: "Partywear", image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=300&q=80", link: "/search?category=partywear" },
   { id: 2, name: "Ethnicwear", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=300&q=80", link: "/search?category=ethnicwear" },
-  { id: 3, name: "Men", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80", link: "/search?category=men" },
+  { id: 3, name: "Men", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80", link: "/search?category=shirt" },
   { id: 4, name: "Footwear", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=300&q=80", link: "/search?category=footwear" },
   { id: 5, name: "Lingerie", image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=300&q=80", link: "/search?category=lingerie" },
   { id: 6, name: "Sportswear", image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=300&q=80", link: "/search?category=sportswear" },
