@@ -307,5 +307,51 @@ const getHomePageData = async (req, res) => {
 };
 
 
-module.exports = { createProduct, getProducts, getProductById, updateProduct, deleteProduct, getHomePageData };
+
+
+const getBrandsSummary = async (req, res) => {
+    try {
+        const brands = await Product.aggregate([
+            {
+                $group: {
+                    _id: '$brand',
+                    count: { $sum: 1 },
+                    sampleImages: { $push: '$imageURL' },
+                    categories: { $addToSet: '$category' },
+                    genders: { $addToSet: '$gender' },
+                    minPrice: { $min: '$price' },
+                    maxPrice: { $max: '$price' },
+                    maxDiscount: { $max: '$discount' },
+                    avgRating: { $avg: '$rating' }
+                }
+            },
+            {
+                $project: {
+                    _id: 0,
+                    brand: '$_id',
+                    count: 1,
+                    sampleImages: { $slice: ['$sampleImages', 4] },
+                    categories: 1,
+                    genders: 1,
+                    minPrice: 1,
+                    maxPrice: 1,
+                    maxDiscount: 1,
+                    avgRating: { $round: ['$avgRating', 1] }
+                }
+            },
+            { $sort: { brand: 1 } }
+        ]);
+
+        res.status(200).json({
+            brands,
+            total: brands.length
+        });
+    } catch (error) {
+        console.error('Error in getBrandsSummary:', error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+module.exports = { createProduct, getProducts, getProductById, updateProduct, deleteProduct, getHomePageData, getBrandsSummary };
 

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,6 +10,10 @@ import Checkout from './pages/Checkout';
 import Search from './pages/Search';
 import Profile from './pages/Profile';
 import Wishlist from './pages/Wishlist';
+import Women from './pages/Women';
+import Men from './pages/Men';
+import Kids from './pages/Kids';
+import Brands from './pages/Brands';
 
 const App = () => {
   return (
@@ -19,6 +23,10 @@ const App = () => {
         <main className="w-full">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/kids" element={<Kids />} />
+            <Route path="/brands" element={<Brands />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path='/products/:id' element={<ProductDetail />} />

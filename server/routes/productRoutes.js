@@ -12,13 +12,16 @@ const {
     getProductById,
     updateProduct,
     deleteProduct,
-    getHomePageData
+    getHomePageData,
+    getBrandsSummary
 } = require('../controllers/productController');
 const { searchProducts, suggestProducts } = require('../controllers/searchController');
 
 router.post('/', protect, admin, upload.single('image'), createProduct);
 router.get('/', getProducts);
 router.get('/homepage', getHomePageData);
+router.get('/brands', getBrandsSummary);
+router.get('/brands-summary', getBrandsSummary);
 router.get('/search', searchProducts);
 router.get('/suggest', suggestProducts);
 router.get('/:id', getProductById);
