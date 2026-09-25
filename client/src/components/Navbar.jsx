@@ -32,10 +32,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { label: "Home", to: "/" },
     { label: "Women", to: "/women" },
     { label: "Men", to: "/men" },
     { label: "Kids", to: "/kids" },
-    { label: "Home", to: "/" },
     { label: "All Brands", to: "/brands" },
   ];
 
